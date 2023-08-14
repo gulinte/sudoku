@@ -1,19 +1,4 @@
-# javascript-sudoku
-
-    Make Sudoku Game With HTML CSS JavaScript
-
-# Video tutorial
-
-    https://youtu.be/xpsm3tOLTVE
-
-# Resource
-
-    Google font: https://fonts.google.com/
-
-    Boxicons: https://boxicons.com/
-
-    Images: https://unsplash.com/
-
-# Preview
-
-!["Make Sudoku Game With HTML CSS JavaScript"](https://user-images.githubusercontent.com/67447840/135793517-57b1d971-67c5-4561-bd70-43f26998a108.jpg "Make Sudoku Game With HTML CSS JavaScript")
+# Sudoku
+This is a forked version of the Sudoku game web application. I made some modifications to the original project to enhance the user experience and improve the design. I added a keyboard input feature and updated CSS styles.
+### Credits
+This Sudoku game is based on an original project created by: [Tuat Tran Anh](https://github.com/trananhtuat/javascript-sudoku)
