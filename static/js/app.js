@@ -46,8 +46,8 @@ const getGameInfo = () => JSON.parse(localStorage.getItem('game'));
 const initGameGrid = () => {
     let index = 0;
 
-    for (let i = 0; i < Math.pow(CONSTANT.GRID_SIZE,2); i++) {
-        let row = Math.floor(i/CONSTANT.GRID_SIZE);
+    for (let i = 0; i < Math.pow(CONSTANT.GRID_SIZE, 2); i++) {
+        let row = Math.floor(i / CONSTANT.GRID_SIZE);
         let col = i % CONSTANT.GRID_SIZE;
         if (row === 2 || row === 5) cells[index].style.marginBottom = '10px';
         if (col === 2 || col === 5) cells[index].style.marginRight = '10px';
@@ -86,7 +86,7 @@ const initSudoku = () => {
     for (let i = 0; i < Math.pow(CONSTANT.GRID_SIZE, 2); i++) {
         let row = Math.floor(i / CONSTANT.GRID_SIZE);
         let col = i % CONSTANT.GRID_SIZE;
-        
+
         cells[i].setAttribute('data-value', su.question[row][col]);
 
         if (su.question[row][col] !== 0) {
@@ -114,7 +114,7 @@ const loadSudoku = () => {
     for (let i = 0; i < Math.pow(CONSTANT.GRID_SIZE, 2); i++) {
         let row = Math.floor(i / CONSTANT.GRID_SIZE);
         let col = i % CONSTANT.GRID_SIZE;
-        
+
         cells[i].setAttribute('data-value', su_answer[row][col]);
         cells[i].innerHTML = su_answer[row][col] !== 0 ? su_answer[row][col] : '';
         if (su.question[row][col] !== 0) {
@@ -150,13 +150,13 @@ const hoverBg = (index) => {
     }
 
     step = 1;
-    while (index - step >= 9*row) {
+    while (index - step >= 9 * row) {
         cells[index - step].classList.add('hover');
         step += 1;
     }
 
     step = 1;
-     while (index + step < 9*row + 9) {
+    while (index + step < 9 * row + 9) {
         cells[index + step].classList.add('hover');
         step += 1;
     }
@@ -205,13 +205,13 @@ const checkErr = (value) => {
     }
 
     step = 1;
-    while (index - step >= 9*row) {
+    while (index - step >= 9 * row) {
         addErr(cells[index - step]);
         step += 1;
     }
 
     step = 1;
-    while (index + step < 9*row + 9) {
+    while (index + step < 9 * row + 9) {
         addErr(cells[index + step]);
         step += 1;
     }
@@ -384,6 +384,32 @@ document.querySelector('#btn-delete').addEventListener('click', () => {
 
     removeErr();
 })
+
+// enables the player to input numbers from the keyboard
+document.addEventListener('keydown', function (event) {
+    const focusedCell = document.querySelector('.selected');
+    if (focusedCell) {
+        const keyValue = event.key;
+        if (!isNaN(keyValue) && keyValue >= 1 && keyValue <= 9) {
+            focusedCell.innerHTML = keyValue;
+            focusedCell.setAttribute('data-value', keyValue);
+
+            let row = Math.floor(selected_cell / CONSTANT.GRID_SIZE);
+            let col = selected_cell % CONSTANT.GRID_SIZE;
+
+            su_answer[row][col] = parseInt(keyValue);
+
+            removeErr();
+            checkErr(parseInt(keyValue));
+
+            // check game win
+            if (isGameWin()) {
+                removeGameInfo();
+                showResult();
+            }
+        }
+    }
+});
 // -------------
 
 const init = () => {
