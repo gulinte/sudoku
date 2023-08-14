@@ -1,13 +1,13 @@
 :root {
-    --bg-main: #f0f2f5;
+    --bg-main: #e2e4e9;
     --bg-body: #fff;
     --color-txt: #000;
     --filled-color: #000;
-    --filled-bg: #caf0f8;
+    --filled-bg: #8f89c9;
 
     --white: #fff;
-    --blue: #00aeef;
-    --red: #e91e63;
+    --blue: #736bb9;
+    --red: #d31857;
     --black: #000;
 
     --nav-size: 70px;
@@ -27,8 +27,8 @@
 .dark {
     --bg-main: #2a2a38;
     --bg-body: #1a1a2e;
-    --color-txt: #6a6a6a;
-    --filled-color: #4f4f63;
+    --color-txt: #9898d0;
+    --filled-color: #9898d0;
     --filled-bg: #000;
 }
 
@@ -40,7 +40,7 @@
 }
 
 body {
-    font-family: "Potta One", cursive;
+    font-family: 'Bricolage Grotesque', sans-serif;
     /* height: 100vh; */
     background-color: var(--bg-body);
     overflow-x: hidden;
@@ -48,7 +48,7 @@ body {
 }
 
 input {
-    font-family: "Potta One", cursive;
+    font-family: 'Bricolage Grotesque', sans-serif;
     border: 2px solid var(--bg-main);
     color: var(--color-txt);
 }
@@ -146,7 +146,7 @@ nav {
     transform: translateX(0);
 }
 
-.start-screen > * + * {
+.start-screen>*+* {
     margin-top: 20px;
 }
 
@@ -189,12 +189,15 @@ nav {
     0% {
         transform: translateX(0);
     }
+
     25% {
         transform: translateX(20px);
     }
+
     50% {
         transform: translateX(-20px);
     }
+
     100% {
         transform: translateX(0);
     }
@@ -348,8 +351,8 @@ nav {
     display: flex;
 }
 
-.pause-screen > * + *,
-.result-screen > * + * {
+.pause-screen>*+*,
+.result-screen>*+* {
     margin-top: 20px;
 }
 
@@ -384,6 +387,7 @@ nav {
     0% {
         transform: scale(3);
     }
+
     100% {
         transform: scale(1);
     }
@@ -397,12 +401,15 @@ nav {
     0% {
         transform: scale(2);
     }
+
     25% {
         transform: scale(2) rotate(30deg);
     }
+
     50% {
         transform: scale(2) rotate(-30deg);
     }
+
     100% {
         transform: scale(1);
     }
